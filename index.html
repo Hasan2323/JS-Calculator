@@ -100,7 +100,7 @@
         function equal() {
             let result = eval(data);
             document.querySelector("#calScreen").value = result;
-            data = result;
+            data = result.toString();
         }
 
         function del() {
