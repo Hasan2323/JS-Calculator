@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        .container {
+            width: 100%;
+            max-width: 350px;
+            margin: 30px auto;
+            background-color: gray;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 150%;
+            padding: 10px;
+            font-style: italic;
+        }
+
+        .inputField {
+            background-color: #CBC5FB;
+        }
+
+        input {
+            width: 100%;
+            background-color: #CBC5FB;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+
+        .cal {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 12px;
+        }
+
+        button {
+            width: calc(33.33% - 10px);
+            padding: 12px;
+            border-radius: 6px;
+            background-color: #FAD2C4;
+            box-shadow: 0px 0px 8px 1px #717171;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">
+            Sample Calculator
+        </div>
+
+        <div class="inputField">
+            <input type="text" id="calScreen" readonly>
+        </div>
+
+        <div class="cal">
+            <button>ON</button>
+            <button onclick="del()">DEL</button>
+            <button onclick="erase()">C</button>
+
+            <button onclick="num(1)">1</button>
+            <button onclick="num(2)">2</button>
+            <button onclick="num('+')">+</button>
+
+            <button onclick="num(3)">3</button>
+            <button onclick="num(4)">4</button>
+            <button onclick="num('-')">-</button>
+
+            <button onclick="num(5)">5</button>
+            <button onclick="num(6)">6</button>
+            <button onclick="num('*')">*</button>
+
+            <button onclick="num(7)">7</button>
+            <button onclick="num(8)">8</button>
+            <button onclick="num('/')">/</button>
+
+            <button onclick="num(9)">9</button>
+            <button onclick="num(0)">0</button>
+            <button onclick="equal()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let data = '';
+
+        function num(number) {
+            data += number;
+            document.querySelector("#calScreen").value = data;
+        }
+
+        function equal() {
+            let result = eval(data);
+            document.querySelector("#calScreen").value = result;
+            data = result;
+        }
+
+        function del() {
+            data = data.toString().slice(0, -1);
+            document.querySelector("#calScreen").value = data;
+        }
+
+        function erase() {
+            data = '';
+            document.querySelector("#calScreen").value = data;
+        }
+    </script>
+
+</body>
+
+</html>
