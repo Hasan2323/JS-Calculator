@@ -47,6 +47,13 @@
             border-radius: 6px;
             background-color: #FAD2C4;
             box-shadow: 0px 0px 8px 1px #717171;
+            cursor: pointer;
+            transition: all .5s ease;
+        }
+
+        button:active {
+            transform: translateY(5px);
+            box-shadow: 0px 0px 3px 1px #717171;
         }
     </style>
 </head>
@@ -63,7 +70,7 @@
         </div>
 
         <div class="cal">
-            <button>ON</button>
+            <button onclick="on()">ON</button>
             <button onclick="del()">DEL</button>
             <button onclick="erase()">C</button>
 
@@ -112,7 +119,14 @@
             data = '';
             document.querySelector("#calScreen").value = data;
         }
+
+        function on() {
+            data = '';
+            document.querySelector("#calScreen").value = data;
+            document.querySelector("#calScreen").placeholder = 'Start calculating..';
+        }
     </script>
 
 </body>
+
 </html>
